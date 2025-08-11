@@ -51,8 +51,8 @@ Resume_Analyzer/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/yourusername/resume_analyzer.git
-cd resume_analyzer
+git clone https://github.com/piyush0s/resume-analyzer.git
+cd resume-analyzer
 ```
 
 ### 2️⃣ Create and activate a virtual environment
@@ -114,5 +114,5 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 
 ## 📧 Contact
 For queries or collaboration, reach out:
-- **Email**: your.email@example.com
-- **GitHub**: [yourusername](https://github.com/yourusername)
+- **Email**: piyushsharm59@gmail.com
+- **GitHub**: [piyush0s](https://github.com/piyush0s)
