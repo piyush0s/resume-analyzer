@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Category Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='resume.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .uploadarea {
+            margin-top: 30px;
+        }
+        .result {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Screening AI System</h1>
+        <p>This system analyzes resumes to:</p>
+        <ul>
+            <li>Predict Resume Category (e.g., Data Science, Software Development, etc.)</li>
+            <li>Provide Job Recommendations</li>
+            <li>Extract Key Resume Details (Name, Email, Skills, Education, etc.)</li>
+        </ul>
+
+        <div class="uploadarea">
+            <h2>Upload Your Resume</h2>
+            <form action="/pred" method="post" enctype="multipart/form-data">
+                <input type="file" name="resume" accept=".pdf,.txt" required>
+                <br><br>
+                <button type="submit">Analyze Resume</button>
+            </form>
+
+            {% if error %}
+            <p style="color: red;"><strong>{{ error }}</strong></p>
+            {% endif %}
+
+            {% if predicted_category %}
+            <div class="result">
+                <h3>Resume Analysis Result</h3>
+
+                {% if name %}
+                    <p><strong>Name:</strong> {{ name }}</p>
+                {% endif %}
+
+                {% if phone_numbers %}
+                    <p><strong>Phone:</strong> {{ phone_numbers[0] }}</p>
+                {% endif %}
+
+                {% if emails %}
+                    <p><strong>Email:</strong> {{ emails[0] }}</p>
+                {% endif %}
+
+                {% if education %}
+                    <p><strong>Education:</strong> {{ education | join(', ') }}</p>
+                {% endif %}
+
+                {% if skills %}
+                    <p><strong>Skills:</strong> {{ skills | join(', ') }}</p>
+                {% endif %}
+
+                <hr>
+
+                <p><strong>Predicted Category:</strong> {{ predicted_category }}</p>
+                <p><strong>Recommended Job:</strong> {{ recommended_job }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+<!-- End of file: templates/resume.html -->
