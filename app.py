@@ -2,14 +2,23 @@ from flask import Flask, render_template, request
 import pickle
 from PyPDF2 import PdfReader
 import re
+from pathlib import Path
 
 app = Flask(__name__)
 
 # Load pre-trained models
-rf_classifier = pickle.load(open('rf_classifier.pkl', 'rb'))
-tfidf_vectorizer = pickle.load(open('tfidf_vectorizer.pkl', 'rb'))
-rf_classifier1 = pickle.load(open('rf_classifier1.pkl', 'rb'))
-tfidf_vectorizer1 = pickle.load(open('tfidf_vectorizer1.pkl', 'rb'))
+BASE_DIR = Path(__file__).resolve().parent
+
+
+def load_model(filename):
+    with (BASE_DIR / filename).open('rb') as model_file:
+        return pickle.load(model_file)
+
+
+rf_classifier = load_model('rf_classifier.pkl')
+tfidf_vectorizer = load_model('tfidf_vectorizer.pkl')
+rf_classifier1 = load_model('rf_classifier1.pkl')
+tfidf_vectorizer1 = load_model('tfidf_vectorizer1.pkl')
 
 # Helper: Extract text from PDF
 def extract_text_from_pdf(file):
