@@ -1,7 +1,7 @@
 # 📝 Resume Analyzer
 
 A **Machine Learning-powered** web application that analyzes resumes, extracts key skills, and predicts job suitability.  
-Built using **Python, Flask, HTML, CSS, and Jupyter Notebook**, with `.pkl` files for trained ML models.
+Built using **Python, Streamlit, and Jupyter Notebook**, with `.pkl` files for trained ML models.
 
 ---
 
@@ -11,15 +11,14 @@ Built using **Python, Flask, HTML, CSS, and Jupyter Notebook**, with `.pkl` file
 - 🧠 **Machine Learning Model** – Predicts job role suitability using pre-trained `.pkl` models.
 - 📊 **Skill Extraction** – Extracts key skills, education, and experience from resumes.
 - 🎯 **Job Recommendation** – Suggests relevant job categories.
-- 🌐 **Web Interface** – Simple and responsive UI using HTML, CSS, and Flask.
+- 🌐 **Web Interface** – Interactive UI using Streamlit.
 - ⚡ **Fast & Lightweight** – Works locally without heavy dependencies.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Python, Flask
-- **Frontend**: HTML, CSS
+- **Application**: Python, Streamlit
 - **Machine Learning**: Scikit-learn, Pandas, NumPy
 - **File Handling**: PyPDF2, docx2txt
 - **Model Storage**: `.pkl` files
@@ -67,15 +66,23 @@ source venv/bin/activate # On Mac/Linux
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the Flask app
+### 4️⃣ Run the Streamlit app
 ```bash
-python app.py
+streamlit run streamlit_app.py
 ```
 
 ### 5️⃣ Open in browser
 ```
-http://127.0.0.1:5000
+http://localhost:8501
 ```
+
+### Deploy on Streamlit Community Cloud
+
+1. Push this repository to GitHub.
+2. Create a new app at [share.streamlit.io](https://share.streamlit.io).
+3. Select this repository and branch.
+4. Set the main file to `streamlit_app.py`.
+5. Deploy the app.
 
 ---
 

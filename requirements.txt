@@ -1,0 +1,9 @@
+streamlit
+Flask
+PyPDF2
+scikit-learn==1.9.0
+numpy
+scipy
+joblib
+threadpoolctl
+narwhals
